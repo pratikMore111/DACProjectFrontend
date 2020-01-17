@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<form action="/action_page.php">
+  <div class="container">
+    <h2>Register</h2>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="phone"><b>Phone No.</b></label>
+    <input type="text" placeholder="Enter Phone No." name="phone" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="gender"><b>Gender:</b></label>
+    <select name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
+    </select>
+  
+    <hr>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+  
+  <div class="container signin">
+    <p>Already have an account? <a href="/login">Sign in</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>
