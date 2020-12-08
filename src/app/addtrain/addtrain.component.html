@@ -1,0 +1,85 @@
+
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<form (ngSubmit)="addTrain(myForm)" #myForm="ngForm" >
+ 
+  <br>
+  <legend>Add New Train</legend>
+
+  <div class="form-group">
+    <label for="source">Source*</label>
+      <input ngModel type="text" class="form-control" required placeholder="Enter Source"  name="Source" #Source="ngModel" #spy>
+      <div *ngIf="Source.invalid && (Source.dirty || Source.touched || Source.pristine)" class="alert alert-danger">
+        <div *ngIf="Source.errors.required">
+            Source Station is required.
+        </div>
+      </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="Destination">Destination*</label>
+      <input ngModel type="text" class="form-control" required placeholder="Enter Destination"  name="Destination" #Destination="ngModel" #spy>
+      <div *ngIf="Destination.invalid && (Destination.dirty || Destination.touched || Destination.pristine)" class="alert alert-danger">
+        <div *ngIf="Destination.errors.required">
+          Destination Station is required.
+        </div>
+      </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="StartTime">Start Time*</label>
+      <input ngModel type="time" class="form-control" required placeholder="Enter Start Time" id="myTime"  name="StartTime" #StartTime="ngModel" #spy>
+      <div *ngIf="StartTime.invalid && (StartTime.dirty || StartTime.touched || StartTime.pristine)" class="alert alert-danger">
+        <div *ngIf="StartTime.errors.required">
+          Start Time is required.
+        </div>
+      </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="EndTime">End Time*</label>
+      <input ngModel type="time" class="form-control" required placeholder="Enter End Time" id="myTime" name="EndTime" #EndTime="ngModel" #spy>
+      <div *ngIf="EndTime.invalid && (EndTime.dirty || EndTime.touched || EndTime.pristine)" class="alert alert-danger">
+        <div *ngIf="EndTime.errors.required">
+          End Time is required.
+        </div>
+      </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="Capacity"> Train Total Capacity*</label>
+      <input ngModel type="text" class="form-control" required placeholder="Enter Train Capacity"  name="Capacity" #Capacity="ngModel" #spy>
+      <div *ngIf="Capacity.invalid && (Capacity.dirty || Capacity.touched || Capacity.pristine)" class="alert alert-danger">
+        <div *ngIf="Capacity.errors.required">
+          Train Capacity is required.
+        </div>
+      </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="SeatCapacity"> Train Seating Capacity*</label>
+      <input ngModel type="text" class="form-control" required placeholder="Enter Train Capacity"  name="SeatCapacity" #SeatCapacity="ngModel" #spy>
+      <div *ngIf="SeatCapacity.invalid && (SeatCapacity.dirty || SeatCapacity.touched || SeatCapacity.pristine)" class="alert alert-danger">
+        <div *ngIf="SeatCapacity.errors.required">
+          Train Seating Capacity is required.
+        </div>
+      </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="StandCapacity"> Train Standing Capacity*</label>
+      <input ngModel type="text" class="form-control" required placeholder="Enter Train Train Capacity"  name="StandCapacity" #StandCapacity="ngModel" #spy>
+      <div *ngIf="StandCapacity.invalid && (StandCapacity.dirty || StandCapacity.touched || StandCapacity.pristine)" class="alert alert-danger">
+        <div *ngIf="StandCapacity.errors.required">
+          Train Standing Capacity is required.
+        </div>
+      </div>  
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Add</button>
+
+  <!-- <span>
+      {{message}}
+  </span> -->
+</form>
+</div>

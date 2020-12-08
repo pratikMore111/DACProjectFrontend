@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="">
+
+<form action="/" method="POST" name="myForm">
+  <div class="container" name="myDiv">
+    <h2>Update Profile</h2>
+    <p>Please fill in this form to Update Profile.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input [(ngModel)]="userEmail" type="email" placeholder="Enter Email" name="email" ng-model="email" required>
+    
+    
+    
+    <label for="name"><b>Name</b></label>
+    <input [(ngModel)]="userName" type="text" placeholder="Enter Name" name="name" required>
+
+
+    <label for="phone"><b>Phone No.</b></label>
+    <input [(ngModel)]="userMobile" type="text" placeholder="Enter Phone No." name="phone" required>
+   
+  
+
+   
+  
+    <hr>
+
+    <button (click)="updateProfile()" type="submit" class="registerbtn">Update</button>
+  </div>
+
+</form>
+
+</body>
+</html>

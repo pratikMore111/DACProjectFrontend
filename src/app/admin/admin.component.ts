@@ -24,4 +24,22 @@ export class AdminComponent implements OnInit {
    })
 
 }
+deleteUser(UserId){
+  //console.log(UserId);
+  this.service.deleteUser(UserId).subscribe(  response => { 
+    let result = response.json();
+    //console.log(result);
+    if(result.Status=="success"){
+      alert("Successfully deleted..!");
+      this.getUser();
+      //this.router.navigate(['/usrdashboard']);
+    }
+    else{
+      alert("Something Went wrong, Try again.!");
+    }
+  })
+}
+OnlineUsers(){
+
+}
 }

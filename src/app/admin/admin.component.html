@@ -1,34 +1,31 @@
 
-<div id="contact-admin">
+<div style="width: 50%;">
 <div class="container">
 <h2>Users List</h2>
-<table class="table table-bordered table-hover" id="list-table">
+<table class="table table-bordered table-hover" id="list-table" style="width: 80%;">
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Email</th>
+      <th>Online Status</th>
       <th>Phone</th>
-      <th>Role</th>
       <th>Delete</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let m of users">
-      <td>{{m.Id}}</td>
-      <td>{{m.name}}</td>
-      <td>{{m.email}}</td>
-      <td>{{m.phone}}</td>
-      <td>{{m.role}}</td>
+      <td>{{m.UserId}}</td>
+      <td>{{m.Name}}</td>
+      <td>{{m.EmailId}}</td>
+      <td>{{m.IsOnline}}</td>
+      <td>{{m.MobileNo}}</td>
       <td style="width: 100px">
-      <button  type="button" class="btn btn-large btn-block btn-danger">Delete</button>
+      <button (click)="deleteUser(m.UserId)" type="button" class="btn btn-large btn-block btn-danger">Delete</button>
       </td>
     </tr> 
   </tbody>
 </table>
-<div style="align-content: center">
-    <button formaction="/login" style="width: 100px" type="button" class="btn btn-large btn-block btn-primary">Logout</button>
-</div>
 
 </div>
 </div>

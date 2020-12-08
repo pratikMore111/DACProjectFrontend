@@ -1,0 +1,19 @@
+<body>
+
+  <h2>Change Password</h2>
+  
+  <form action="/" method="put">
+  
+    <div class="container">
+      <label for="oldpwd"><b>Old Password</b></label>
+      <input [(ngModel)]="oldpwd" type="password" placeholder="Enter Old Password" name="oldpwd" required>
+  
+      <label for="newpwd"><b>New Password</b></label>
+      <input [(ngModel)]="newpwd" type="password" placeholder="Enter New Password" name="newpwd" required>
+          
+      <button (click)="update()" type="submit">Update</button>
+    </div>
+  
+  </form>
+  
+  </body>

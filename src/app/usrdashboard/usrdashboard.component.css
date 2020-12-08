@@ -1,0 +1,15 @@
+footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+  }
+  .imgcontainer {
+    /* text-align: center; */
+    margin: 24px 0 8px 0;
+  }
+  
+  img.avatar {
+    height: 80px;
+    width: 40%;
+    border-radius: 50%;
+  }

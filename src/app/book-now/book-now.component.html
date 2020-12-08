@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Booking Form HTML Template</title>
+
+
+</head>
+
+<body>
+<br>
+
+  <form *ngIf="flag==0">
+    <div class="container" style="width: 500px;">
+      <h1 >Book</h1 >
+      <h2>Your Ticket..!</h2>
+      <hr>
+  
+      <label for="from"><b>From*</b></label>
+      <div class="col-75">
+        <select [(ngModel)]="fromStn" id="station" name="from">
+          <option value="PCMC" >PCMC</option>
+          <option value="Bhosari">Bhosari</option>
+          <option value="Khadki">Khadki</option>
+          <option value="Shivaji Nagar">Shivaji Nagar</option>
+          <option value="Swargate">Swargate</option>
+        </select>
+      </div>
+
+      <label for="to"><b>To*</b></label>
+      <div class="col-75">
+        <select [(ngModel)]="toStn" id="station" name="to">
+          <option value="Swargate">Swargate</option>
+          <option value="Shivaji Nagar">Shivaji Nagar</option>
+          <option value="Khadki">Khadki</option>
+          <option value="Bhosari">Bhosari</option>
+          <option value="PCMC">PCMC</option>
+        </select>
+      </div>
+
+      <label for="fname">Count*</label>
+      <input [(ngModel)]="count" class="form-control" type="number" id="pnumber" name="pcount" placeholder="No. of Pasengers" min="1">
+
+      <button (click)="bookTicket()" type="submit" class="registerbtn">Book Now</button>
+    </div>
+  </form>
+
+  <div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    
+    <div class="container" *ngIf="flag==1">
+      <h2>Confirm Ticket</h2>          
+      <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Source</td>
+            <td>{{fromStn}}</td>
+          </tr>
+          <tr>
+            <td>Destination</td>
+            <td>{{toStn}}</td>
+          </tr>
+          <tr>
+            <td>Total Distance</td>
+            <td>{{TotalDistance}}Km</td>
+          </tr>
+          <tr>
+            <td>Travel Time</td>
+            <td>{{TravelTime}}mins</td>
+          </tr>
+          <tr>
+            <td>Passenger Count</td>
+            <td>{{count}}</td>
+          </tr>
+          <tr>
+            <td>Total Fare</td>
+            <td>{{TotalFare}}Rs</td>
+          </tr>
+          <tr>
+            <br>
+          <button id="cnfrmbtn" (click)="confirmTicket()" style="width: 40%;" type="button" onclick="this.disabled=true" class="btn btn-large btn-block btn-primary">Book Ticket</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="container" *ngIf="flag==2">
+      <h2>Booked Ticket Details</h2>          
+      <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Source</td>
+            <td>{{fromStn}}</td>
+          </tr>
+          <tr>
+            <td>Destination</td>
+            <td>{{toStn}}</td>
+          </tr>
+          <tr>
+            <td>Total Distance</td>
+            <td>{{TotalDistance}}Km</td>
+          </tr>
+          <tr>
+            <td>Travel Time</td>
+            <td>{{TravelTime}}mins</td>
+          </tr>
+          <tr>
+            <td>Ticket Count</td>
+            <td>{{count}}</td>
+          </tr>
+          <tr>
+            <td>Total Fare</td>
+            <td>{{TotalFare}}Rs</td>
+          </tr>
+          <tr>
+            <td>Booked Time</td>
+            <td>{{BookTime}}</td>
+          </tr>
+          <tr>
+            <br>
+          <button (click)="return()" style="width: 40%;" type="button" class="btn btn-large btn-block btn-primary">Return</button>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!--End of DIV-->
+
+    <div  *ngIf="flag==3">
+
+      <div class="row">
+        <div class="col-75">
+          <div class="container">
+            <form #myForm="ngForm" (ngSubmit)="pay(myForm)" role="form">
+      
+              <div class="row">
+               
+      
+                <div class="col-50">
+                  <h4>Payment</h4>
+                  <label for="fname">Accepted Cards</label>
+                  <div class="icon-container" >
+                   <img style="width: 300px; margin-left: 60px;" src="/assets/creditcard.jpg" alt>
+                  </div>
+                  <label for="cname">Name on Card</label>
+                  <input type="text" id="cname" name="cardname" placeholder="{{uname}}" readonly>
+                  <label for="ccnum">Credit card number</label>
+                  <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" readonly>
+       
+      
+      
+                  <div class="row">
+                    <div class="col-50">
+                      <label for="expmonth">Exp Month</label>
+                      <input type="text" id="expmonth" name="expmonth" placeholder="September" readonly>
+                    </div>
+                    <div class="col-50">
+                      <label for="expmonth">Payment</label>
+                      <input type="text" name="payment" placeholder="{{TotalFare}}" readonly>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-50">
+                      <label for="expyear">Exp Year</label>
+                      <input type="text" id="expyear" name="expyear" placeholder="2020" readonly>
+                    </div>
+                    <div class="col-50">
+                      <label for="cvv">CVV</label>
+                      <input type="text" id="cvv" name="cvv" placeholder="352" readonly>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+            
+              <input style="margin-right: 150px; margin-top: 10px;" (click)="makePayment()" onclick="this.disabled=true" type="submit" value="Make Payment" class="btn">
+              
+              
+            
+            </form>
+          </div>
+        </div>
+      
+        
+      </div>
+
+    </div><!--End of DIV-->
+
+
+    </body>
+    </html>
+         
+  </div> 
+
+
+
+</body>
+
+</html>

@@ -1,6 +1,4 @@
-<body>
-  <br>
-
+<body background="/assets/Metro.jpg">
   <div>
     <div class="container" style="text-align: center">
       <table style="width: 100%;" border="0">
@@ -9,7 +7,7 @@
             <img src="/assets/Metro_Logo.jpg" alt="MetroLogo" style="width: 100px; height: 120px;">
           </td>
           <td>
-            <h1>Welcome to Online Metro Booking</h1>
+            <h1 style="color: goldenrod;">Welcome to Online Metro Booking</h1>
           </td>
         </tr>
       </table>     
@@ -18,25 +16,44 @@
       <tr>
         <td>
           <form action="action_page.php">
-            <div class="container" style="width: 500px;">
-              <h1 >Book</h1 >
-              <h2>Your Journey..!</h2>
+            <div class="container" style="width: 500px; height: 465px;">
+              <h1 style="color:goldenrod;">Book</h1 >
+              <h2 style="color: goldenrod;">Your Journey..!</h2>
               <hr>
-          
-              <label for="from"><b>From</b></label>
-              <input type="text" placeholder="Start Station" name="from" required>
-          
-              <label for="to"><b>To</b></label>
-              <input type="text" placeholder="End Station" name="to" required>
+
+              <label for="from"><b style="color: white; font-size: 18px; letter-spacing: 1px;">From*</b></label>
+              <div class="col-75">
+                <select [(ngModel)]="fromStn" id="station" name="from">
+                  <option value="PCMC" >PCMC</option>
+                  <option value="Bhosari">Bhosari</option>
+                  <option value="Khadki">Khadki</option>
+                  <option value="Shivaji Nagar">Shivaji Nagar</option>
+                  <option value="Swargate">Swargate</option>
+                </select>
+              </div>
+
+              
+              <label for="to"><b style="color: white; font-size: 18px; letter-spacing: 1px;">To*</b></label>
+              <div class="col-75">
+                <select [(ngModel)]="toStn" id="station" name="to">
+                  <option value="Swargate">Swargate</option>
+                  <option value="Shivaji Nagar">Shivaji Nagar</option>
+                  <option value="Khadki">Khadki</option>
+                  <option value="Bhosari">Bhosari</option>
+                  <option value="PCMC">PCMC</option>
+                </select>
+              </div>
       
-              <button type="submit" class="registerbtn">View Details</button>
+              <br>
+              
+              <button type="submit" (click)="getDetails()" class="registerbtn">View Details</button>
             </div>
           </form>
 
         </td>
         <td>
           <div class="zoomin">
-            <img src="/assets/pune_map.jpg"  title="All you need to know about CSS Transitions " />
+            <img src="/assets/pune_map.jpg"  title="Metro Map"/>
           </div>
         </td>
       </tr>

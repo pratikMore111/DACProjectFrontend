@@ -1,44 +1,89 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
 
-<form action="/action_page.php">
-  <div class="container">
-    <h2>Register</h2>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<form #myForm="ngForm" >
+ 
+  <br>
+  <legend>Add New User</legend>
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="phone"><b>Phone No.</b></label>
-    <input type="text" placeholder="Enter Phone No." name="phone" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <label for="gender"><b>Gender:</b></label>
-    <select name="gender">
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-      <option value="Others">Others</option>
-    </select>
-  
-    <hr>
-
-    <button type="submit" class="registerbtn">Register</button>
+  <div class="form-group">
+    <label for="email">Email Id</label>
+      <input [(ngModel)]="userEmail" type="text" (focusout)="myFunction()" class="form-control" required placeholder="Enter Email" email id="name" id="email" name="EmailId" #EmailId="ngModel" #spy>
+      <div *ngIf="EmailId.invalid && (EmailId.dirty || EmailId.touched || EmailId.pristine)" class="alert alert-danger">
+        <div *ngIf="EmailId.errors.required">
+            Email id is required.
+        </div>
+        <div *ngIf="EmailId.errors.email">
+            Email Id must be valid.
+        </div>  
+    </div> 
+</div>
+  <span class="form-group" style="color:tomato">
+    {{msg}}
+  </span>
+  <div class="form-group">
+      <label for="Name">Name</label>
+      <input [(ngModel)]="rname" type="text" class="form-control" required placeholder="Enter Name" pattern="[A-Za-z0-9]+" id="Name" name="Name" #Name="ngModel" #spy>
+      <div *ngIf="Name.invalid && (Name.dirty || Name.touched || Name.pristine)" class="alert alert-danger">
+        <div *ngIf="Name.errors.required">
+            Name is required.
+        </div>
+        <div *ngIf="Name.errors.pattern">
+            Allowed only Alphabets
+        </div>
+    </div>    
   </div>
-  
-  <div class="container signin">
-    <p>Already have an account? <a href="/login">Sign in</a>.</p>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input [(ngModel)]="pwd" type="password" class="form-control" required placeholder="Enter Password" minlength="4" maxlength="10" id="password" name="password" #password="ngModel" #spy>
+    <div *ngIf="password.invalid && (password.dirty || password.touched || password.pristine)" class="alert alert-danger">
+      <div *ngIf="password.errors.required">
+          Password is required.
+      </div>
+      <div *ngIf="password.errors.minlength">
+          Password must be at least 4 characters long.
+      </div>
+  </div> 
   </div>
+  <div class="form-group">
+    <label for="mobileno">Mobile No.</label>
+    <input [(ngModel)]="userMobile" type="text" class="form-control" id="MobileNo" required placeholder="Enter Mobile No" pattern="[0-9]{10}" maxlength="10" name="MobileNo" #MobileNo="ngModel" #spy> 
+    <div *ngIf="MobileNo.invalid && (MobileNo.dirty || MobileNo.touched || MobileNo.pristine)" class="alert alert-danger">
+        <div *ngIf="MobileNo.errors.required">
+            Mobile No. is required.
+        </div>
+        <div *ngIf="MobileNo.errors.pattern">
+            Mobile No. must be 10 digit number 
+        </div>
+    </div> 
+</div>
+
+<table>
+  <tr>
+    <td>
+      <div class="form-group">
+        <label for="gender"> Gender</label>
+          <select class="form-control" id="gender" required [(ngModel)]="Gender" name="gender" #spy>
+          <option *ngFor="let c of gender" [value]="c">{{c}}</option>
+          </select>
+      </div>
+    </td>
+    <td>
+      <div class="form-group" style="margin-left: 100px;">
+        <label for="dob"> DOB</label><br>
+        <input [(ngModel)]="DOB" type="date" class="form-control" name="dob" id="" required>
+      </div>
+
+    </td>
+  </tr>
+</table>
+<br>
+
+  <button (click)="registerMe()" type="submit" class="btn btn-primary" [disabled]="!myForm.form.valid">Add</button>
+
+  <!-- <span>
+      {{message}}
+  </span> -->
 </form>
-
-</body>
-</html>
+</div>

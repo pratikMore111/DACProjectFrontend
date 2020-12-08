@@ -1,0 +1,26 @@
+div {
+    border: 1px solid gray;
+    padding: 8px;
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+    border-style: outset;
+    border-width: 3px;
+  }
+  
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #4CAF50;
+  }
+  
+  p {
+    text-indent: 0px;
+    text-align: justify;
+    letter-spacing: 3px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #008CBA;
+  }

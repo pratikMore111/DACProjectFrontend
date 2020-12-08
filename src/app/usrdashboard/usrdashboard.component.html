@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 650px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+      widows: 100%;
+    }
+        
+    /* On small screens, set height to 'auto' for the grid */
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+<div> 
+  <table border="0" style="height: 100%;" > 
+    <tr>
+      <td>
+        <div class="container-fluid" *ngIf="flag==2">
+          <div class="row content">
+          <div class="col-sm-11 sidenav hidden-xs">
+            <br>
+            <div class="imgcontainer">
+              <img src="http://localhost:60838/Photos/{{userId}}.jpg" alt="Avatar" class="avatar" style="width: 100px">
+            </div>
+            <h2>Hello {{uname}}</h2>
+            <br>
+            <ul class="nav nav-pills nav-stacked">
+      
+             <!-- <li><a href="/admin">User Details</a></li>
+              <li><a href="/traindetails">Train Details</a></li> -->
+              <li><a href="/usrdashboard/updateprofile">Edit Profile</a></li> 
+              <li><a href="/usrdashboard/changepassword">Change Password</a></li>
+              <li><a href="/usrdashboard/booknow">Book Ticket</a></li>
+              <li><a href="/usrdashboard/tickethistory">Booked Ticket History</a></li>
+
+  
+              <!-- <li><a href="#section3">History Log</a></li> -->
+              <li><a *ngIf="isLogin" (click)="logout()" href="#">Sign Out</a></li>
+      
+              <li><label style="margin-top: 160px; margin-left: 2px; letter-spacing: 1px;" for="image">Upload Profile Photo</label></li>
+               <table>
+                 <tr>
+                   <td><button style="width: 70px;" type="button" (click)="onUpload()" class="btn btn-large btn-block btn-primary">Upload</button></td>
+                   <td><input style="margin-left: 20px;" type="file" (change)="onFileChanged($event)" accept=".jpg,.jpeg">
+                  
+                  </td>
+                 </tr>
+               </table> 
+               <br>      
+               <span>Image name must be {{userId}}.jpeg or {{userId}}.jpg</span>     
+      
+            </ul><br>
+          </div>
+        </div>
+      </div>  <!-- end DIV-1 -->
+
+      <div class="container-fluid" *ngIf="flag==1">
+        <div class="row content">
+        <div class="col-sm-11 sidenav hidden-xs">
+          <br>
+          <div class="imgcontainer">
+            <img src="http://localhost:60838/Photos/{{userId}}.jpg" alt="Avatar" class="avatar" style="width: 100px">
+          </div>        
+          <h2>Hello {{uname}}</h2>
+          <br>
+          <ul class="nav nav-pills nav-stacked">
+    
+            <li><a href="/usrdashboard/admin">User Details</a></li>
+            <li><a href="/usrdashboard/traindetails">Train Details</a></li>
+            <li><a href="/usrdashboard/updateprofile">Edit Profile</a></li> 
+            <li><a href="/usrdashboard/changepassword">Change Password</a></li>
+
+
+            <!-- <li><a href="#section3">History Log</a></li> -->
+            <!-- <li><a (click)="logout()" href="#">Sign Out</a></li> -->
+    
+            <li><label style="margin-top: 110px; margin-left: 2px; letter-spacing: 1px;" for="image">Upload Profile Photo</label></li>
+             <table>
+               <tr>
+                 <td><button style="width: 70px;" type="button" (click)="onUpload()" class="btn btn-large btn-block btn-primary">Upload</button></td>
+                 <td><input style="margin-left: 20px;" type="file" (change)="onFileChanged($event)" accept=".jpg,.jpeg">
+                </td>
+               </tr>
+                           
+             </table>
+             <br>      
+             <span>Image name must be {{userId}}.jpeg or {{userId}}.jpg</span>
+          </ul><br>
+        </div>
+      </div>
+    </div>
+      </td><!-- end td1 -->
+      <td>
+        <div>
+          <router-outlet>
+          </router-outlet>
+        </div>
+        
+      </td><!-- end td2 -->
+    </tr>
+  </table>
+  <footer class="container-fluid">
+    <p>Pune Metro</p>
+  </footer>
+
+</div> <!-- end div1 -->

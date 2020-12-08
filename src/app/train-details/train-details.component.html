@@ -1,0 +1,40 @@
+
+<div id="contact-admin">
+  <div class="container" >
+  <h2>Train Details</h2>
+  <table class="table table-bordered table-hover" id="list-table" style="width: 80%;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Capacity</th>
+        <th>Seating Capacity</th>
+        <th>Standing Capacity</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of train">
+        <td>{{m.Id}}</td>
+        <td>{{m.Source}}</td>
+        <td>{{m.Destination}}</td>
+        <td>{{m.StartTime}}</td>
+        <td>{{m.EndTime}}</td>
+        <td>{{m.Capacity}}</td>
+        <td>{{m.SeatCapacity}}</td>
+        <td>{{m.StandCapacity}}</td>
+        <td style="width: 100px">
+          <button (click)="deleteTrain(m.Id)"  type="button" class="btn btn-large btn-block btn-danger">Delete</button>
+        </td>
+      </tr> 
+    </tbody>
+  </table>
+  <div style="align-content: center">
+      <button (click)="addtrain()" style="width: 100px" type="button" class="btn btn-large btn-block btn-primary">Add Train</button>
+  </div>
+  
+  </div>
+  </div>
